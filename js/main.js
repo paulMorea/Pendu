@@ -19,8 +19,7 @@ var choiceMenu = prompt(`  -----------Menu----------- \r jouer : taper "J"\r rè
         alert("Voici les règles : ")
         menu();
     }
-    else if(choiceMenu==="q"){
-        
+    else if(choiceMenu==="q"){ 
         play = false;
     }
     else {
@@ -35,9 +34,7 @@ function choiceWord (){
     let choice = searchWord[Math.floor(Math.random() * searchWord.length)];
     choice = choice.split("");
     console.log(choice);
-    return(choice);}else{
-        alert("a bientot!");
-    }
+    return(choice);}
 };
 
 // remplace le mot par des underscores
@@ -88,7 +85,9 @@ while(userLife>0 && arrayEquals(choice, hideWord)===false){
 };
 if (arrayEquals(choice, hideWord)===true){
     alert("vous avez gagné");
+    menu();
 }       
 else{
     alert("Vous avez perdu !");
+    menu();
 }
