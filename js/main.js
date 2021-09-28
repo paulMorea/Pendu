@@ -9,13 +9,14 @@ let choiceMenu = prompt(`  -----------Menu----------- \r jouer : taper "J"\r rè
         menu();
     }
     else if(choiceMenu==="q"){ 
-        play = false;
+        return;
     }
     else {
         alert("je n'ai pas compris");
         menu();
     }
 };
+
 //Odinateur choisit le mot aléatoire
 function choiceWord (){
     let searchWord = [
@@ -24,6 +25,7 @@ function choiceWord (){
     let choice = (searchWord[Math.floor(Math.random() * searchWord.length)]).toLowerCase();
     choice = choice.split("");
     return(choice);}
+
 // remplace le mot par des underscores
 function hide(choice){
 let hideWord =[];
@@ -32,6 +34,7 @@ let hideWord =[];
     }
     return hideWord;
 };
+
 // Validation choix de la lettre
 function validLetterChoice(hideWord){
     let letterChoice = prompt(hideWord + "\nEntrez votre lettre :");
@@ -40,13 +43,12 @@ function validLetterChoice(hideWord){
         }
     return letterChoice;  
 };
+
 //test si les tableaux sont égaux
 function arrayEquals(choice, hideWord) {
-    return Array.isArray(choice) &&
-      Array.isArray(hideWord) &&
-      choice.length === hideWord.length &&
-      choice.every((val, index) => val === hideWord[index]);
+    return choice.every((val, index) => val === hideWord[index]);    
 };
+
 // le jeu
 function play() {
     let userLife = 7;
@@ -79,4 +81,3 @@ function play() {
 /* -------------------------initialisation du jeu----------------------------------*/
 alert("Bienvenue sur le jeu du pendu");
 menu();
-play();
